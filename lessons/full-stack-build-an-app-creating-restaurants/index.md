@@ -233,6 +233,18 @@ link.
 Returning to our `NewRestaurant` component, we can now have the user redirected
 to the home page after submitting their new restaurant.
 
+
+(useHistory was replace with useNavigate in react-router-dom v6)
+Example:
+import { useNavigate } from "react-router-dom";
+
+const navigate = useNavigate();
+  const createNewRestaurant = useMutation(submitNewRestaurant, {
+    onSuccess: function () {
+      navigate("/");
+    },
+  });
+
 To do this we change our mutation to call `history.push('/')` after submitting
 the API request.
 
